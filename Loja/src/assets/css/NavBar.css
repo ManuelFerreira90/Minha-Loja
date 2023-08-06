@@ -1,6 +1,7 @@
 .products_container{
     padding: 120px 0px 20px 0px;
-    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px; 
 }
 
 .products_list{
@@ -10,6 +11,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 50px;
 }
 

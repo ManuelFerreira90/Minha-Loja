@@ -4,13 +4,51 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 50PX;
+
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .card_product{
-    border: 1px solid black;
+    padding: 15px 15px 30px 15px;
+    border: 1px solid rgb(204, 194, 194);
+    border-radius: 10px;
+
+    width: 200px;
+
+    background-color: white;
+
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+
+
 }
 
+.card_product:hover {
+    box-shadow: 0 0 5px rgba(92, 85, 85, 0.5);
+}
+  
 .card_image{
     height: 150px;
     width: 150px;
+}
+
+.cad_title{
+    text-align: center;
+    word-wrap: break-word;
+    margin-top: 20px;
+}
+
+.price{
+    flex-grow: 1; /* Ocupará todo o espaço disponível */
+    flex-shrink: 0; /* Não encolherá */
+    flex-basis: 0;
+
+    font-size: 20px;
+    color: #00a650;
+
+    margin-top: 50px;
 }

@@ -9,7 +9,7 @@ function Header() {
         <div className='container'>
 
             <form className='search_container'>
-                <input type="search" placeholder='Buscar produtos' className='input_produtos' required/>
+                <input type="search" placeholder='Search for products' className='input_produtos' required/>
                 <button className='search_btn'> 
                     <BsSearch/> 
                 </button>

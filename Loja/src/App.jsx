@@ -1,10 +1,17 @@
 import React from 'react'
 import Header from './assets/components/Header'
+import NavBar from './assets/components/NavBar'
+import Products from './assets/components/Products'
+
 
 function App() {
   return (
   <>
-    <Header />
+    <div>
+      <Header />
+      <NavBar />
+      <Products />
+    </div>
   </>
   )
 }

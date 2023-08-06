@@ -1,0 +1,16 @@
+.card_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50PX;
+}
+
+.card_product{
+    border: 1px solid black;
+}
+
+.card_image{
+    height: 150px;
+    width: 150px;
+}

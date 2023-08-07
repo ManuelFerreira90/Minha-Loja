@@ -8,14 +8,12 @@ function App() {
 
   const [navegation, setNavegation] = useState('jewelery')
 
-  console.log(navegation)
-
   return (
   <>
     <div>
       <Header />
       <NavBar navegation={navegation} setNavegation={setNavegation} />
-      <Products navegation={navegation} setNavegation={setNavegation} />
+      <Products navegation={navegation} />
     </div>
   </>
   )

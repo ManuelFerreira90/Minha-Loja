@@ -3,42 +3,76 @@ import '../css/NavBar.css'
 
 function NavBar(props) {
 
-  const [active, setActive] = useState(1)
+  const [active, setActive] = useState('1')
 
-  const handleLi = (e) => {
+  const handleNavegation = (e) => {
     const encodedCategory = encodeURIComponent(e)
     props.setNavegation(encodedCategory);
   } 
 
+  const handleLi = (e) => {
+    const aux = e.target.getAttribute("id")
+    switch (aux) {
+      case '1':
+        setActive('1')
+        break
+      case '2':
+        setActive('2')
+        break
+      case '3':
+        setActive('3')
+        break
+        case '4':
+      setActive('4')
+      break
+      default:
+        break
+    }
+  }
+
+  
+
   return (
     <div>
         <nav className='products_container'>
-            <ul className={active == 1 ? 'products_list  '}>
+            <ul className='products_list'>
                 <li 
                   id='1'
-                  className='products_section'
-                  onClick={()=>{handleLi('jewelery')}}
+                  className={active == 1 ? 'products_section  active' : 'products_section'}
+                  onClick={(e)=>{
+                    handleNavegation('jewelery')
+                    handleLi(e)
+                  }}
                   >
                   Jewelery
                 </li>
                 <li 
                   id='2'
-                  className='products_section'
-                  onClick={()=>handleLi('eletronics')}
+                  className={active == 2 ? 'products_section  active' : 'products_section'}
+                  onClick={(e)=>{
+                    handleNavegation('electronics')
+                    handleLi(e)
+                  }}
                   >
                   Electronics
                 </li>
                 <li 
                   id='3'
-                  className='products_section'
-                  onClick={()=>{handleLi("Women's clothing")}}
+                  className={active == 3 ? 'products_section  active' : 'products_section'}
+                  onClick={(e)=>{
+                    handleNavegation("women's clothing")
+                    handleLi(e)
+                  }}
                   >
                   Women's clothing
                 </li>
                 <li 
-                  id='5'
-                  className='products_section'
-                  onClick={()=>{handleLi("Men's clothing")}}
+                  id='4'
+                  className={active == 4 ? 'products_section  active' : 'products_section'}
+                  onClick={(e)=>{
+                    handleNavegation("men's clothing")
+                    handleLi(e)
+                  }}
                   >
                   Men's clothing
                 </li>

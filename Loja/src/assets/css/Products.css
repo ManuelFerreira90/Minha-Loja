@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 50PX;
+    gap: 50px;
 
     margin-top: 20px;
     margin-left: 10px;
@@ -24,7 +24,7 @@
 
     cursor: pointer;
 
-
+    flex-basis: calc(22% - 50px);
 }
 
 .card_product:hover {
@@ -43,9 +43,6 @@
 }
 
 .price{
-    flex-grow: 1; /* Ocupará todo o espaço disponível */
-    flex-shrink: 0; /* Não encolherá */
-    flex-basis: 0;
 
     font-size: 20px;
     color: #00a650;

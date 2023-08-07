@@ -7,6 +7,7 @@ import Products from './assets/components/Products'
 function App() {
 
   const [navegation, setNavegation] = useState('jewelery')
+  const [produtctPage, setProductPage] = useState({})
 
   return (
   <>

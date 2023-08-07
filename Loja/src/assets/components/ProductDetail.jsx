@@ -32,12 +32,12 @@ function ProductDetail() {
             </div>
             <div className='product_info'>
                 <div className='rating'>
-                    <span>{count}</span>
+                    <span className='sold'>Sold {count} units</span>
                     <RatingStars rate={rate}/>
                 </div>
-                <span>{title}</span>
-                <p className='price'>${price}</p>
-                <p>{description}</p>
+                <span className='title'>{title}</span>
+                <p className='pricee'>${price}</p>
+                <p className='description'>{description}</p>
             </div>
         </section>
     </div>

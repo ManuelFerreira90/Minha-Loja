@@ -2,6 +2,7 @@ header{
     background-color: rgb(21, 64, 121);
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 .container{
@@ -57,7 +58,7 @@ button, input{
     align-items: center;
     position: relative;
     
-    font-size: 20px;
+    font-size: 23px;
     padding: 5px;
 
     cursor: pointer;
@@ -67,8 +68,8 @@ button, input{
 .cart_info{
     background-color: red;
     color: white;
-    height: 12px;
-    width: 12px;
+    height: 16px;
+    width: 16px;
     border-radius: 12px;
 
     display: flex;
@@ -79,7 +80,7 @@ button, input{
     top: 0;
     left: 0;
 
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
 }
 

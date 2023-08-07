@@ -1,6 +1,8 @@
 import React,{ useEffect, useState} from 'react'
 import fetchProdutos from '../api/fetchProducts'
 import { Link } from 'react-router-dom'
+import Cart from './Cart'
+import {BsCartPlusFill} from 'react-icons/bs'
 import '../css/Products.css'
 
 
@@ -14,8 +16,6 @@ function Products(props) {
       })
   }, [props.navegation])
 
-  /* e.target.getAttribute("id") */
-
   const Products = () => {
       return products.map((product) => {
         const { id, image, price, title } = product
@@ -24,18 +24,23 @@ function Products(props) {
             <Link to={`/productDetail/${id}`}>
               <img className='card_image' src={image} alt={title} />
             </Link>
-              <p className='cad_title price'>${price}</p>
-              <p className='cad_title'>{title}</p>
-            
+            <p className='cad_title price'>${price}</p>
+            <p className='cad_title'>{title}</p>
+            <button className='cart_btn_product' onClick={()=>{props.setCartCount(props.cartCount+1)}}> 
+              <BsCartPlusFill /> 
+            </button>
           </div>
         )
       })
   }
 
   return (
-    <section className='card_section'>
-      {Products()}
-    </section>
+    <>
+      <section className='card_section'>
+        {Products()}
+      </section>
+      <Cart />
+    </>
   )
 }
 

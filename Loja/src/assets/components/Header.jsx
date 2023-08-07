@@ -2,7 +2,7 @@ import React from 'react'
 import {BsSearch, BsCart2} from 'react-icons/bs'
 import '../css/Header.css'
 
-function Header() {
+function Header(props) {
   return (
     <header>
 
@@ -17,7 +17,7 @@ function Header() {
 
             <button className='cart_btn'> 
                 <BsCart2/>
-                <span className='cart_info'>1</span> 
+                {props.cartCount == 0 ? '' : <span className='cart_info'>{props.cartCount}</span>} 
             </button>
             
         </div>

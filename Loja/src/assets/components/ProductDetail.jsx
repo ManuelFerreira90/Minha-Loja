@@ -4,6 +4,7 @@ import Header from './Header'
 import NavBarProduct from './NavBarProduct'
 import fetchProducts from '../api/fetchProducts'
 import RatingStars from './RatingStars'
+import { BsCart3 } from 'react-icons/bs'
 import '../css/ProductDetail.css'
 
 function ProductDetail() {
@@ -11,6 +12,8 @@ function ProductDetail() {
     const { id } = useParams()
 
     const [product, setProduct] = useState({})
+    const initialCartCount = parseInt(localStorage.getItem('cartCount')) || 0
+    const [cartCount, setCartCount] = useState(initialCartCount)
 
     useEffect(()=>{
         fetchProducts(`/${id}`).then((response) => {
@@ -22,9 +25,48 @@ function ProductDetail() {
     const rate = rating ? rating.rate : 0   
     const count = rating ? rating.count : 0 
 
+    const handleCart = () => {
+    const keys = Object.keys(localStorage)
+    const idAux = parseInt(id)
+    let cart = false
+    let auxLocalStorage
+
+    keys.forEach((key)=>{
+      auxLocalStorage = JSON.parse(localStorage.getItem(key))
+      if(auxLocalStorage.id === idAux){
+        cart = true
+        auxLocalStorage.amount = auxLocalStorage.amount + 1
+        localStorage.setItem(key, JSON.stringify(auxLocalStorage))
+      }
+    })
+
+    if(cart == false){
+      const objCart = {
+        id:idAux,
+        amount:1
+      }
+      localStorage.setItem('id'+cartCount, JSON.stringify(objCart))
+
+      const aux = cartCount + 1
+      setCartCount(aux)
+      localStorage.setItem('cartCount', aux)
+    }
+  }
+
+  const handleStorageChange = () => {
+    setCartCount(0)
+  }
+
+  useEffect(() => {
+    window.addEventListener('storage', handleStorageChange)
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+    }
+  }, [])
+
   return (
     <div>
-        <Header />
+        <Header cartCount={cartCount} />
         <NavBarProduct />
         <section className='product_detail'>
             <div className='product_img'>
@@ -34,6 +76,12 @@ function ProductDetail() {
                 <div className='rating'>
                     <span className='sold'>Sold {count} units</span>
                     <RatingStars rate={rate}/>
+                    <button 
+                        className='cart_btn_detail'
+                        onClick={()=>{handleCart()}}
+                        >
+                        <BsCart3 />
+                    </button>
                 </div>
                 <span className='title'>{title}</span>
                 <p className='pricee'>${price}</p>

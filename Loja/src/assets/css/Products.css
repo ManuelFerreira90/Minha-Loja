@@ -1,14 +1,15 @@
 .card_section{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+    column-gap: 3rem;
+    row-gap: 2rem;
 
     margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+
+    justify-self: center;
+
+    width: 85%;
 }
 
 .card_product{
@@ -22,8 +23,6 @@
 
     font-size: 14px;
     text-align: center;
-
-    flex-basis: calc(22% - 50px);
 
     position: relative;
 }
@@ -77,6 +76,11 @@
     right: 20px;
 
     cursor: pointer;
+}
+
+.product_container{
+    display: flex;
+    justify-content: center;
 }
 
 Link{

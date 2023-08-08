@@ -48,6 +48,9 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+
+    height: 40px;
 }
 
 .description{
@@ -62,4 +65,20 @@ img{
 
 .sold{
     color: rgb(121, 113, 113);
+}
+
+.cart_btn_detail{
+    background-color: transparent;
+    color: rgb(21, 64, 121);
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    font-size: 23px;
+    padding: 5px;
+
+    cursor: pointer;
+    margin-left: 10px;
 }

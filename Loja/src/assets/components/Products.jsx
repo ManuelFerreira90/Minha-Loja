@@ -1,8 +1,7 @@
 import React,{ useEffect, useState} from 'react'
 import fetchProdutos from '../api/fetchProducts'
 import { Link } from 'react-router-dom'
-import Cart from './Cart'
-import {BsCartPlusFill} from 'react-icons/bs'
+import {FaCartPlus} from 'react-icons/fa'
 import '../css/Products.css'
 
 
@@ -26,8 +25,8 @@ function Products(props) {
             </Link>
             <p className='cad_title price'>${price}</p>
             <p className='cad_title'>{title}</p>
-            <button className='cart_btn_product' onClick={()=>{props.setCartCount(props.cartCount+1)}}> 
-              <BsCartPlusFill /> 
+            <button className='cart_btn_product' onClick={()=>{props.handleCart(id)}}> 
+              <FaCartPlus /> 
             </button>
           </div>
         )
@@ -35,12 +34,11 @@ function Products(props) {
   }
 
   return (
-    <>
+    <div className='product_container'>
       <section className='card_section'>
         {Products()}
       </section>
-      <Cart />
-    </>
+    </div>
   )
 }
 

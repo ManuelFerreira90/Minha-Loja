@@ -1,0 +1,42 @@
+.products_container{
+    padding: 120px 0px 20px 0px;
+    margin-left: 10px;
+    margin-right: 10px; 
+
+}
+
+.products_list{
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.products_section{
+    cursor: pointer;
+    
+    color: rgb(65, 54, 54);
+}
+
+.products_section:hover{
+    cursor: pointer;
+    
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+
+.active{
+    cursor: pointer;
+
+    color: orange;
+    border-bottom: 2px solid orange;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}

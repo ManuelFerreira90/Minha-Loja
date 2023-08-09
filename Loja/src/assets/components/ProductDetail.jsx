@@ -4,7 +4,7 @@ import Header from './Header'
 import NavBarProduct from './NavBarProduct'
 import fetchProducts from '../api/fetchProducts'
 import RatingStars from './RatingStars'
-import { BsCart3 } from 'react-icons/bs'
+import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import '../css/ProductDetail.css'
 
 function ProductDetail() {
@@ -80,7 +80,7 @@ function ProductDetail() {
                         className='cart_btn_detail'
                         onClick={()=>{handleCart()}}
                         >
-                        <BsCart3 />
+                        <MdOutlineAddShoppingCart />
                     </button>
                 </div>
                 <span className='title'>{title}</span>

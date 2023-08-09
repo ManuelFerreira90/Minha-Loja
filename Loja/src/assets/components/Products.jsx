@@ -1,7 +1,7 @@
 import React,{ useEffect, useState} from 'react'
 import fetchProdutos from '../api/fetchProducts'
 import { Link } from 'react-router-dom'
-import {FaCartPlus} from 'react-icons/fa'
+import {MdOutlineAddShoppingCart} from 'react-icons/md'
 import '../css/Products.css'
 
 
@@ -19,14 +19,14 @@ function Products(props) {
       return products.map((product) => {
         const { id, image, price, title } = product
         return (
-          <div key={id} className='card_product' onClick={()=>{}}>
+          <div key={id} className={props.clickCart ? 'card_product hide' : 'card_product'} onClick={()=>{}}>
             <Link to={`/productDetail/${id}`}>
               <img className='card_image' src={image} alt={title} />
             </Link>
             <p className='cad_title price'>${price}</p>
             <p className='cad_title'>{title}</p>
             <button className='cart_btn_product' onClick={()=>{props.handleCart(id)}}> 
-              <FaCartPlus /> 
+              <MdOutlineAddShoppingCart /> 
             </button>
           </div>
         )
@@ -35,7 +35,7 @@ function Products(props) {
 
   return (
     <div className='product_container'>
-      <section className='card_section'>
+      <section className={props.clickCart ? 'card_section hide' : 'card_section'}>
         {Products()}
       </section>
     </div>

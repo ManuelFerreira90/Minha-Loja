@@ -15,7 +15,7 @@ function Header(props) {
                 </button>
             </form>
 
-            <button className='cart_btn'> 
+            <button className='cart_btn' onClick={()=>props.setClickCart(props.clickCart ? false : true)}> 
                 <BsCart2/>
                 {props.cartCount == 0 ? '' : <span className='cart_info'>{props.cartCount}</span>} 
             </button>

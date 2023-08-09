@@ -115,7 +115,7 @@ function SideBar(props) {
         </div>
         <div className='value_cart_container'>
            <div className='value_cart'>
-             Amount: <span className='cad_title_price_cart'>${amout}</span>
+             Amount: <span className='cad_title_price_cart'>${amout.toFixed(2)}</span>
            </div>
         </div>
         <button className='close_cart' onClick={()=>{

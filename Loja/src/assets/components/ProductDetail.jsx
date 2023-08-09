@@ -7,6 +7,7 @@ import RatingStars from './RatingStars'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import '../css/ProductDetail.css'
 import SideBar from './SideBar'
+import Products from './Products'
 
 function ProductDetail() {
 
@@ -16,6 +17,8 @@ function ProductDetail() {
     const initialCartCount = parseInt(localStorage.getItem('cartCount')) || 0
     const [cartCount, setCartCount] = useState(initialCartCount)
     const [clickCart, setClickCart] = useState(false)
+    const [search, setSearch] = useState(false)
+    const [textSearch, setTextSearch] = useState('')
 
     useEffect(()=>{
         fetchProducts(`/${id}`).then((response) => {
@@ -68,28 +71,35 @@ function ProductDetail() {
 
   return (
     <div>
-        <Header cartCount={cartCount} setClickCart={setClickCart} clickCart={clickCart} />
+        <Header cartCount={cartCount} setClickCart={setClickCart} clickCart={clickCart} setSearch={setSearch} setTextSearch={setTextSearch} />
         <NavBarProduct />
-        <section className='product_detail'>
-            <div className='product_img'>
-                <img src={image} alt={title} />
-            </div>
-            <div className='product_info'>
-                <div className='rating'>
-                    <span className='sold'>Sold {count} units</span>
-                    <RatingStars rate={rate}/>
-                    <button 
-                        className='cart_btn_detail'
-                        onClick={()=>{handleCart()}}
-                        >
-                        <MdOutlineAddShoppingCart />
-                    </button>
-                </div>
-                <span className='title'>{title}</span>
-                <p className='pricee'>${price}</p>
-                <p className='description'>{description}</p>
-            </div>
-        </section>
+        {
+          !search ?
+          <div>
+            <section className='product_detail'>
+              <div className='product_img'>
+                  <img src={image} alt={title} />
+              </div>
+              <div className='product_info'>
+                  <div className='rating'>
+                      <span className='sold'>Sold {count} units</span>
+                      <RatingStars rate={rate}/>
+                      <button 
+                          className='cart_btn_detail'
+                          onClick={()=>{handleCart()}}
+                          >
+                          <MdOutlineAddShoppingCart />
+                      </button>
+                  </div>
+                  <span className='title'>{title}</span>
+                  <p className='pricee'>${price}</p>
+                  <p className='description'>{description}</p>
+              </div>
+            </section>
+          </div>
+          :
+          <Products navegation='' handleCart={handleCart} clickCart={clickCart} search={search} textSearch={textSearch} />
+        }
         <SideBar setClickCart={setClickCart} clickCart={clickCart} setCartCount={setCartCount} cartCount={cartCount} />
     </div>
   )

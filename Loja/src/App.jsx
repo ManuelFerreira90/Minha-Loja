@@ -53,8 +53,6 @@ function App() {
     }
   }, [])
 
-  console.log(textSearch)
-
   return (
     <div className='app_container'>
       <Header cartCount={cartCount} setClickCart={setClickCart} clickCart={clickCart} setSearch={setSearch} setTextSearch={setTextSearch} />
@@ -67,7 +65,7 @@ function App() {
         :
         <div>
           <NavBarProduct setSearch={setSearch} />
-          <Products navegation={navegation} handleCart={handleCart} clickCart={clickCart} search={search} />
+          <Products navegation={navegation} handleCart={handleCart} clickCart={clickCart} search={search} textSearch={textSearch} />
         </div>
       }
       <SideBar setClickCart={setClickCart} clickCart={clickCart} setCartCount={setCartCount} cartCount={cartCount} />

@@ -20,7 +20,7 @@ function Products(props) {
         setProducts(response)
       })
     }
-  }, [props.navegation])
+  }, [props.navegation, props.search])
 
   const Products = () => {
       return products.map((product) => {
@@ -40,10 +40,37 @@ function Products(props) {
       })
   }
 
+  const ProdutcSearch = () => {
+    const filteredProducts = products.filter((product) => {
+      return product.title.toLowerCase().includes(props.textSearch.toLowerCase())
+    })
+  
+    return (
+      <>
+        {filteredProducts.map((product) => {
+          const { id, image, price, title } = product
+          return (
+            <div key={id} className={props.clickCart ? 'card_product hide' : 'card_product'} onClick={() => {}}>
+              <Link to={`/productDetail/${id}`}>
+                <img className='card_image' src={image} alt={title} />
+              </Link>
+              <p className='cad_title price'>${price}</p>
+              <p className='cad_title'>{title}</p>
+              <button className='cart_btn_product' onClick={() => { props.handleCart(id) }}>
+                <MdOutlineAddShoppingCart />
+              </button>
+            </div>
+          )
+        })}
+      </>
+    )
+  }
+  
+
   return (
     <div className='product_container'>
       <section className={props.clickCart ? 'card_section hide' : 'card_section'}>
-        {Products()}
+        {props.search ? ProdutcSearch() : Products()}
       </section>
     </div>
   )

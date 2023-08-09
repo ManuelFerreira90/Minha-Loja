@@ -10,24 +10,31 @@ function Header(props) {
         setText(e)
     }
 
+    const handleSearch = (e) => {
+        e.preventDefault()
+        if(text != ''){
+            props.setSearch(true)
+            props.setTextSearch(text)
+        }
+    }
+
   return (
     <header>
 
         <div className='container'>
 
-            <form className='search_container'>
-                <input type="search" placeholder='Search for products' className='input_produtos' onChange={(e)=>handleText(e.target.value)} required/>
-                <button className='search_btn' 
-                    onClick={()=>{
-                        props.setSearch(true)
-                        props.setTextSearch(text)
-                    }}
-                    > 
+            <form className='search_container' onSubmit={handleSearch}>
+                <input type="search"
+                    placeholder='Search for products'
+                    className='input_produtos' 
+                    onChange={(e)=>handleText(e.target.value)} required
+                />
+                <button className='search_btn' type='submit'> 
                     <BsSearch/> 
                 </button>
             </form>
 
-            <button className='cart_btn' onClick={()=>props.setClickCart(props.clickCart ? false : true)}> 
+            <button className='cart_btn'> 
                 <BsCart2/>
                 {props.cartCount == 0 ? '' : <span className='cart_info'>{props.cartCount}</span>} 
             </button>

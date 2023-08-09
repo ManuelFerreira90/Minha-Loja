@@ -8,10 +8,7 @@ function NavBarProduct(props) {
     <div>
         <nav className='products_container'>
             <ul className='products_list'>
-                <li 
-                  className='products_section'
-                  onClick={()=>props.setSearch(false)}
-                  >
+                <li className='products_section'>
                   <Link to='/'>Home</Link>
                 </li>
             </ul>

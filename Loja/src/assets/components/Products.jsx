@@ -10,9 +10,16 @@ function Products(props) {
   const [products, setProducts] = useState([])
 
   useEffect(()=>{
+    if(!props.search){
       fetchProdutos(`category/${props.navegation}`).then((response) => {
           setProducts(response)
       })
+    }
+    else{
+      fetchProdutos('').then((response) => {
+        setProducts(response)
+      })
+    }
   }, [props.navegation])
 
   const Products = () => {

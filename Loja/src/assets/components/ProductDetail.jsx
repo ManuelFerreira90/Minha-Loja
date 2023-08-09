@@ -6,6 +6,7 @@ import fetchProducts from '../api/fetchProducts'
 import RatingStars from './RatingStars'
 import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import '../css/ProductDetail.css'
+import SideBar from './SideBar'
 
 function ProductDetail() {
 
@@ -14,6 +15,7 @@ function ProductDetail() {
     const [product, setProduct] = useState({})
     const initialCartCount = parseInt(localStorage.getItem('cartCount')) || 0
     const [cartCount, setCartCount] = useState(initialCartCount)
+    const [clickCart, setClickCart] = useState(false)
 
     useEffect(()=>{
         fetchProducts(`/${id}`).then((response) => {
@@ -66,7 +68,7 @@ function ProductDetail() {
 
   return (
     <div>
-        <Header cartCount={cartCount} />
+        <Header cartCount={cartCount} setClickCart={setClickCart} clickCart={clickCart} />
         <NavBarProduct />
         <section className='product_detail'>
             <div className='product_img'>
@@ -88,6 +90,7 @@ function ProductDetail() {
                 <p className='description'>{description}</p>
             </div>
         </section>
+        <SideBar setClickCart={setClickCart} clickCart={clickCart} setCartCount={setCartCount} cartCount={cartCount} />
     </div>
   )
 }

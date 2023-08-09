@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import '../css/NavBar.css'
 
 
-function NavBarProduct() {
+function NavBarProduct(props) {
   return (
     <div>
         <nav className='products_container'>
             <ul className='products_list'>
                 <li 
                   className='products_section'
+                  onClick={()=>props.setSearch(false)}
                   >
                   <Link to='/'>Home</Link>
                 </li>

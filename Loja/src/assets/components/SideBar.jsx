@@ -69,7 +69,7 @@ function SideBar(props) {
           <div className='product_cart_info'>
             <p className='cad_title_price_cart'>${price}</p>
           </div>
-          <button id='1' className='remove_cart_btn' onClick={(e)=>{removeCart(e)}}>
+          <button className='remove_cart_btn' onClick={()=>{removeCart(id)}}>
             <MdOutlineRemoveShoppingCart />
           </button>
         </div>
@@ -77,20 +77,36 @@ function SideBar(props) {
     })
   }
   
-  const removeCart = (e) => {
-    const aux = e.target.getAttribute('id')
+  const removeCart = (id) => {
     const keys = Object.keys(localStorage)
 
     keys.forEach((key)=>{
         auxLocalStorage = JSON.parse(localStorage.getItem(key))
         if(auxLocalStorage.id != null && auxLocalStorage.id != undefined){
-          console.log(aux)
-            if(auxLocalStorage.id == aux){
+            if(auxLocalStorage.id == id){
+              const updatedCartApi = cartApi.filter((product) => product.id !== id);
               localStorage.removeItem(key)
+              
+              setCartApi(updatedCartApi);
+
+              const auxCartCount = props.cartCount - 1
+              props.setCartCount(auxCartCount)
+              localStorage.setItem('cartCount', auxCartCount)
             }
         }
     })
   }
+
+  const handleStorageChange = () => {
+    setCartApi([])
+  }
+
+  useEffect(() => {
+    window.addEventListener('storage', handleStorageChange)
+    return () => {
+      window.removeEventListener('storage', handleStorageChange)
+    }
+  }, [])
 
   return (
     <section className={props.clickCart ? 'cart_bar open' : 'cart_bar'}>
@@ -99,7 +115,7 @@ function SideBar(props) {
         </div>
         <div className='value_cart_container'>
            <div className='value_cart'>
-             Amount: <span className='cad_title_price_cart'>{amout}</span>
+             Amount: <span className='cad_title_price_cart'>${amout}</span>
            </div>
         </div>
         <button className='close_cart' onClick={()=>{

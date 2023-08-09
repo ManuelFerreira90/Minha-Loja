@@ -3,14 +3,16 @@ import Header from './assets/components/Header'
 import NavBar from './assets/components/NavBar'
 import Products from './assets/components/Products'
 import SideBar from './assets/components/SideBar'
+import NavBarProduct from './assets/components/NavBarProduct'
 
 function App() {
 
   const [navegation, setNavegation] = useState('jewelery')
-  const [produtctPage, setProductPage] = useState({})
   const initialCartCount = parseInt(localStorage.getItem('cartCount')) || 0
   const [cartCount, setCartCount] = useState(initialCartCount)
   const [clickCart, setClickCart] = useState(false)
+  const [search, setSearch] = useState(false)
+  const [textSearch, setTextSearch] = useState('')
 
   const handleCart = (id) => {
     const keys = Object.keys(localStorage)
@@ -32,7 +34,7 @@ function App() {
         id:id,
         amount:1
       }
-      localStorage.setItem('id'+cartCount, JSON.stringify(objCart))
+      localStorage.setItem(id, JSON.stringify(objCart))
 
       const aux = cartCount + 1
       setCartCount(aux)
@@ -51,12 +53,24 @@ function App() {
     }
   }, [])
 
+  console.log(textSearch)
+
   return (
     <div className='app_container'>
-      <Header cartCount={cartCount} setClickCart={setClickCart} clickCart={clickCart} />
-      <NavBar navegation={navegation} setNavegation={setNavegation} clickCart={clickCart} />
-      <Products navegation={navegation} handleCart={handleCart} clickCart={clickCart} />
-      <SideBar setClickCart={setClickCart} clickCart={clickCart} />
+      <Header cartCount={cartCount} setClickCart={setClickCart} clickCart={clickCart} setSearch={setSearch} setTextSearch={setTextSearch} />
+      {
+        !search ?
+        <div>
+          <NavBar navegation={navegation} setNavegation={setNavegation} clickCart={clickCart} />
+          <Products navegation={navegation} handleCart={handleCart} clickCart={clickCart} search={search} />
+        </div>
+        :
+        <div>
+          <NavBarProduct setSearch={setSearch} />
+          <Products navegation={navegation} handleCart={handleCart} clickCart={clickCart} search={search} />
+        </div>
+      }
+      <SideBar setClickCart={setClickCart} clickCart={clickCart} setCartCount={setCartCount} cartCount={cartCount} />
     </div>
   )
 }

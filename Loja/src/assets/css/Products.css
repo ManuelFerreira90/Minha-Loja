@@ -9,7 +9,8 @@
 
     justify-self: center;
 
-    width: 85%;
+    width: 90%;
+
 }
 
 .card_product{
@@ -100,6 +101,28 @@ Link{
 
 .hide{
     pointer-events: none;
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px){
+    .card_section{
+        column-gap: 0rem;
+    
+        width: 100%;
+
+        padding-left: 20px;
+    }
+    .card_product{
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .card_section{
+        place-items: center;
+    }
+    .card_product{
+        width: 180px;
+    }
 }
 
 

@@ -22,13 +22,17 @@ function Products(props) {
     }
   }, [props.navegation, props.search])
 
+
   const Products = () => {
       return products.map((product) => {
         const { id, image, price, title } = product
         return (
-          <div key={id} className={props.clickCart ? 'card_product hide' : 'card_product'} onClick={()=>{}}>
+          <div key={id} className={props.clickCart ? 'card_product hide' : 'card_product'} >
             <Link to={`/productDetail/${id}`}>
-              <img className='card_image' src={image} alt={title} />
+              <img 
+                className='card_image' 
+                src={image} alt={title} 
+                />
             </Link>
             <p className='cad_title price'>${price}</p>
             <p className='cad_title'>{title}</p>
@@ -45,14 +49,20 @@ function Products(props) {
       return product.title.toLowerCase().includes(props.textSearch.toLowerCase())
     })
   
-    return (
-      <>
-        {filteredProducts.map((product) => {
+    return filteredProducts.map((product) => {
           const { id, image, price, title } = product
           return (
-            <div key={id} className={props.clickCart ? 'card_product hide' : 'card_product'} onClick={() => {}}>
+            <div 
+              key={id} 
+              className={props.clickCart ? 'card_product hide' : 'card_product'} 
+              >
               <Link to={`/productDetail/${id}`}>
-                <img className='card_image' src={image} alt={title} />
+                <img 
+                  className='card_image' 
+                  src={image} 
+                  alt={title} 
+                  onClick={typeof props.setSearch === 'function' ? () => props.setSearch(false) : null}
+                  />
               </Link>
               <p className='cad_title price'>${price}</p>
               <p className='cad_title'>{title}</p>
@@ -61,11 +71,8 @@ function Products(props) {
               </button>
             </div>
           )
-        })}
-      </>
-    )
-  }
-  
+    }
+  )}
 
   return (
     <div className='product_container'>

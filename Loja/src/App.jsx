@@ -65,7 +65,7 @@ function App() {
         :
         <div>
           <NavBarProduct setSearch={setSearch} />
-          <Products navegation={navegation} handleCart={handleCart} clickCart={clickCart} search={search} textSearch={textSearch} />
+          <Products navegation={navegation} handleCart={handleCart} clickCart={clickCart} search={search} textSearch={textSearch} setSearch={setSearch} />
         </div>
       }
       <SideBar setClickCart={setClickCart} clickCart={clickCart} setCartCount={setCartCount} cartCount={cartCount} />

@@ -12,7 +12,8 @@ function SideBar() {
   const {
     setClickCart,
     clickCart,
-    setCartCount
+    setCartCount,
+    cartCount
   } = useAppContext()
     
   const [cartProduct, setCartProduct] = useState([])
@@ -21,7 +22,7 @@ function SideBar() {
     if (clickCart) {
       pushCart(setCartProduct)
     }
-  }, [clickCart])
+  }, [clickCart, cartCount])
 
 
   let amout = 0

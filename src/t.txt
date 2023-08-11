@@ -1,0 +1,27 @@
+<div className='app_container'>
+      <button onClick={()=>setCount((count)=>count + 1)}>count</button>
+</div>
+
+import useAppContext from './assets/hook/useAppContext'
+
+
+  const {count, setCount} = useAppContext()
+
+
+app
+{
+          !search ?
+          <div>
+            <NavBar navegation={navegation} setNavegation={setNavegation} clickCart={clickCart} />
+            <Products navegation={navegation} clickCart={clickCart} search={search} />
+          </div>
+          :
+          <div>
+            <NavBarProduct setSearch={setSearch} />
+            <Products navegation={navegation} clickCart={clickCart} search={search} textSearch={textSearch} setSearch={setSearch} />
+          </div>
+        }
+      <SideBar  />  
+
+
+

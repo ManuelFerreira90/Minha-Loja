@@ -25,6 +25,9 @@ Para começar com este template, siga os seguintes passos:
 4. Inicie o servidor de desenvolvimento: `npm run dev`.
 5. Abra o seu navegador e vá para `http://localhost:5173` para ver a sua aplicação React em ação.
 
+## Link
+[Acessar Página](https://manuelferreira90.github.io/Minha-Loja/)
+
 ## Tecnologias Utilizadas
 
 - [React](https://reactjs.org/): Biblioteca JavaScript para construção de interfaces de usuário.

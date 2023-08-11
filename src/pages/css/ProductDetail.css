@@ -82,3 +82,10 @@ img{
     cursor: pointer;
     margin-left: 10px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 600px){
+    img{
+        height: 200px;
+        width: 200px;
+    }
+}

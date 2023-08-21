@@ -7,7 +7,6 @@ import useAppContext from '../hook/useAppContext'
 import pushCart from '../functions/pushCart'
 import removeCart from '../functions/removeCart'
 
-
 function SideBar() {
   const {
     setClickCart,
@@ -33,7 +32,7 @@ function SideBar() {
       amout += parseFloat(price)
       return (
         <div key={id} className='card_product_cart' onClick={() => {}}>
-          <Link to={`/productDetail/${id}`}>
+          <Link to={`/Minha-Loja/productDetail/${id}`}>
             <img className='card_image_cart' src={image} alt={title} />
           </Link>
           <div className='product_cart_info'>

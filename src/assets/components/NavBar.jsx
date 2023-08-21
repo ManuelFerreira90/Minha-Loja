@@ -1,9 +1,7 @@
 import React,{ useState } from 'react'
 import useAppContext from '../hook/useAppContext'
-import { Link } from 'react-router-dom'
+import { Link, useLocation  } from 'react-router-dom'
 import '../css/NavBar.css'
-
-/* navegation={navegation} setNavegation={setNavegation} clickCart={clickCart} */
 
 function NavBar() {
   const {
@@ -14,20 +12,8 @@ function NavBar() {
     setSearch
   } = useAppContext()
 
-  let productDetailPart
-  let searchPart
-  const currentHref = window.location.href.split('/');
-  const productDetailIndex = currentHref.indexOf('productDetail')
-  const searchPageIndex = currentHref.indexOf('search')
-
-  if (productDetailIndex !== -1) {
-    productDetailPart = currentHref[productDetailIndex]
-  }
-
-  if (searchPageIndex !== -1) {
-    searchPart = currentHref[searchPageIndex]
-  }
-
+  const location = useLocation();
+  console.log(location.pathname);
 
   const [active, setActive] = useState('1')
 
@@ -60,7 +46,7 @@ function NavBar() {
     <div>
         <nav className='products_container'>
             {
-              search || productDetailPart == 'productDetail' || searchPart == 'search' ?
+              search || location.pathname !== '/Minha-Loja'  ?
                 <ul className='products_list'>
                   <li 
                     className='products_section'

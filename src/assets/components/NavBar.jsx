@@ -13,7 +13,6 @@ function NavBar() {
   } = useAppContext()
 
   const location = useLocation();
-  console.log(location.pathname);
 
   const [active, setActive] = useState('1')
 

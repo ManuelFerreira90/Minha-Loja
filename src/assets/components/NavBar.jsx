@@ -14,8 +14,10 @@ function NavBar() {
 
   const location = useLocation();
   const pathSegments = location.pathname.split('/');
-  const lastSegment = pathSegments[pathSegments.length - 1];
+  const lastSegment = pathSegments[pathSegments.length - 2];
   const isHomePage = lastSegment === 'Minha-Loja';
+
+  console.log(lastSegment)
 
   const [homePage, setHomePage] = useState(false);
 
@@ -65,7 +67,7 @@ function NavBar() {
                     className='products_section'
                     onClick={typeof setSearch === 'function' ? () => setSearch(false) : null}
                     >
-                    <Link to='/Minha-Loja'>Home</Link>
+                    <Link to='/Minha-Loja/'>Home</Link>
                   </li>
                 </ul>
               :

@@ -13,6 +13,10 @@ function NavBar() {
   } = useAppContext()
 
   const location = useLocation();
+  const pathSegments = location.pathname.split('/');
+
+  const baseSegment = pathSegments[1];
+  const isHomePage = baseSegment === 'Minha-Loja';
 
   const [active, setActive] = useState('1')
 
@@ -45,7 +49,7 @@ function NavBar() {
     <div>
         <nav className='products_container'>
             {
-              search || location.pathname !== '/Minha-Loja'  ?
+              search || isHomePage ?
                 <ul className='products_list'>
                   <li 
                     className='products_section'

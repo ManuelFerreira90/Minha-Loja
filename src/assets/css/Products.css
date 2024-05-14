@@ -1,0 +1,124 @@
+.card_section{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+    /* margin-top: 20px;
+    margin-bottom: 80px; */
+
+    width: 89%;
+
+}
+
+.card_product{
+    padding: 15px 15px 30px 15px;
+    border: 1px solid rgb(204, 194, 194);
+    border-radius: 10px;
+
+    width: 200px;
+
+    background-color: white;
+
+    font-size: 14px;
+    text-align: center;
+
+    position: relative;
+}
+
+.card_product:hover {
+    box-shadow: 0 0 5px rgba(92, 85, 85, 0.5);   
+}
+
+.card_product:hover .cart_btn_product {
+    display: flex;
+}
+  
+.card_image{
+    height: 150px;
+    width: 150px;
+}
+
+.cad_title{
+    text-align: center;
+    word-wrap: break-word;
+    margin-top: 20px;
+}
+
+.price{
+    font-size: 20px;
+    color: #00a650;
+
+    margin-top: 50px;
+}
+
+.cart_btn_product{
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #fff;
+    color: rgb(21, 64, 121);
+    box-shadow: 0 0 5px rgba(92, 85, 85, 0.5);
+
+    height: 32px;
+    width: 32px;
+
+    border: 1px solid rgb(204, 194, 194);
+    border-radius: 20px;
+
+    font-size: 18px;
+    
+
+    top: 20px;
+    right: 20px;
+
+    cursor: pointer;
+}
+
+.product_container{
+    margin-left: 11%;
+    margin-right: 11%;
+    display: flex;
+    justify-content: center;
+}
+
+Link{
+    cursor: pointer;
+}
+
+@media screen and (min-width: 401px) and (max-width: 600px){
+    .card_section{
+        width: 100%;
+        justify-content: center;
+    }
+    .card_product{
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .card_section{
+        justify-content: center;
+    }
+    .card_product{
+        width: 180px;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 750px){
+    .card_section{
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 752px){
+    .card_section{
+        width: 89%;
+    }
+}

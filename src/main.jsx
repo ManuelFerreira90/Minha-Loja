@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AppProvider>
       <Header />
       <Routes>
-        <Route path='/Minha-Loja/' element={<App/>}></Route>
-        <Route path='/Minha-Loja/productDetail/:id' element={<ProductDetail/>}></Route>
-        <Route path='/Minha-Loja/search/:searchproduct' element={<SearchPage/>}></Route>
+        <Route path='/My-Store/' element={<App/>}></Route>
+        <Route path='/My-Store/productDetail/:id' element={<ProductDetail/>}></Route>
+        <Route path='/My-Store/search/:searchproduct' element={<SearchPage/>}></Route>
       </Routes>
     </AppProvider>
   </BrowserRouter>,
